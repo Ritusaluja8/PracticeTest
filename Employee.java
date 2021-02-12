@@ -1,30 +1,38 @@
-package practicetest;
+package practicetestt;
+import java.util.Scanner;
 public class Employee {
-	String firstName,lastName;
-	Employee(String f,String l)
-	{
-		firstName=f;
-		lastName=l;
+	private String firstName;
+	private String lastName;
+	public Employee(String firstName, String lastName) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
-	void display()
-	{
-		System.out.println(firstName + " " + lastName );
+	void display() throws Exception {
+		if(firstName==null && lastName==null)
+		{
+			throw new NullPointerException("entry missing");
+			
+		}
+		/*else {
+			System.out.println("name is " + firstName + " " + lastName );
+			
+		}*/
+		if(firstName.length()<3 && lastName.length()<3)
+		{
+			throw new Exception("firstname and lastname should be minimum 3 charecters");
+		}
+		/*else {
+			System.out.println(firstName + " " + lastName);
+		}*/
 	}
-	//@Override
-	//public String toString() {
-		//return "Employee [firstName=" + firstName + ", lastName=" + lastName + "]";
-	//}
-	@Override
-	public String toString() {
-		return "Employee [firstName=" + firstName + ", lastName=" + lastName + "]";
-	}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-		Employee emp1=new Employee("Ritu","Saluja");
-		Employee emp2=new Employee("Swati","Sahu");
-		Employee emp3=new Employee("Neha","Verma");
+		Employee emp1=new Employee(null,null);
+		//Employee emp2=new Employee("Ritu","Saluja");
+		//Employee emp3=new Employee("H","S");
 		emp1.display();
-		emp2.display();
-		emp3.display();
+		//emp2.display();
+		//emp3.display();
 	}
 }
